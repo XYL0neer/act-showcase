@@ -1,0 +1,10 @@
+name: Awesome Act
+
+on: [workflow_dispatch]
+
+jobs:
+  deploy:
+    runs-on: Ubuntu
+    steps:
+      - name: Hello World
+        run: echo 'Hello World'
