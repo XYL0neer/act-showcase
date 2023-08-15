@@ -38,3 +38,6 @@ jobs:
 
       - name: Build
         run: pnpm run build
+
+      - name: docker build
+        run: docker build -f Dockerfile -t app:latest .
