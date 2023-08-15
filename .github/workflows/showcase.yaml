@@ -1,10 +1,23 @@
-name: Awesome Act
+name: Showcase Act
 
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: string
+        required: true
+        description: Name to greet
 
 jobs:
-  deploy:
-    runs-on: Ubuntu
+  hello-job:
+    runs-on: ubuntu-latest
     steps:
-      - name: Hello World
-        run: echo 'Hello World'
+      - name: Greet input
+        run: echo "Hello ${{ inputs.name }}"
+
+      - name: Secrets
+        run: echo "${{ secrets.best_framework }} is the best frontend framework trust me"
+
+      - name: Show secret
+        run: |
+          echo ${{ secrets.best_framework }} | sed 's/./& /g'
